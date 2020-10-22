@@ -22,12 +22,12 @@ def check_updates(bot):
         last_news = info['page']
 
         # LOG: CHECKED
-        print("[CHECKED] Ultima notizia salvata localmente") 
+        print("[CHECKED] Ultima news salvata localmente") 
     elif last_news != info['page']:
         # Se locale e online non coincidono:
-        #   Nuova notizia rilevata
+        #   Nuova news rilevata
         # LOG: CHECKED
-        print("[CHECKED] Rilevata nuova notizia")
+        print("[CHECKED] Rilevata nuova news")
 
         # Inizializza caption documento
         caption = "<b>" + info['title'] + "  </b>\n" + \
@@ -43,7 +43,7 @@ def check_updates(bot):
         for tag in info['tags']:
             caption += f"#{tag}  "
 
-        # Condividi notizia sul canale
+        # Condividi news sul canale
         bot.send_message(chat_id=os.environ['CHANNEL_ID'], text=caption, 
                                     parse_mode=ParseMode.HTML)
 
@@ -51,11 +51,11 @@ def check_updates(bot):
         last_news = info['page']
 
         # LOG: SHARE
-        print("[SHARE] Pubblicata nuova notizia")
+        print("[SHARE] Pubblicata nuova news")
     else:
-        # Nessuna notizia
+        # Nessuna news
         # LOG: CHECKED
-        print("[CHECKED] Nessuna nuova notizia trovata")     
+        print("[CHECKED] Nessuna nuova news trovata")     
 
 def get_news(i):
     """Ottieni news di posizione i."""

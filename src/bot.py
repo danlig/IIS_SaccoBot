@@ -12,16 +12,16 @@ def main():
     token = os.environ['TOKEN']
     bot = Updater(token).bot
 
+    # LOG: STARTED
+    print("[STARTED] Bot avviato correttamente")
+
     # Inizializza scheduler
     sched = BlockingScheduler()
     # Imposta interval job
-    sched.add_job(check_updates, 'interval', minutes=10,
+    sched.add_job(check_updates, 'interval', minutes=3,
                     args=[bot])
     # Avvia scheduler
     sched.start()
-
-    # LOG: STARTED
-    print("[STARTED] Bot avviato correttamente")
 
 if __name__ == '__main__':
     main()
